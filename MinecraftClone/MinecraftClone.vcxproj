@@ -135,21 +135,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Block.cpp" />
+    <ClCompile Include="src\Chunk.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mesh.cpp" />
     <ClCompile Include="src\Shader.cpp" />
-    <ClCompile Include="src\visualize_perlin.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Block.h" />
+    <ClInclude Include="src\BlockFace.h" />
+    <ClInclude Include="src\Chunk.h" />
     <ClInclude Include="src\Mesh.h" />
     <ClInclude Include="src\PerlinNoise.h" />
     <ClInclude Include="src\Shader.h" />
     <ClInclude Include="src\stb_image.h" />
+    <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shaders\triangle.frag" />
     <None Include="src\Shaders\triangle.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\Textures\DirtText.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

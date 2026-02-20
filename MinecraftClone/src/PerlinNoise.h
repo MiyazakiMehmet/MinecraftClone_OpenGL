@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <math.h>
 
@@ -6,7 +8,7 @@ typedef struct {
 } vector2;
 
 //By using "Hashing", it generates random angle according to the grid coordinates. This way, we don't need to precompute gradients and store them in a table.
-vector2 randomGradient(int ix, int iy) {
+static inline vector2 randomGradient(int ix, int iy) {
     // No precomputed gradients mean this works for any number of grid coordinates
     const unsigned w = 8 * sizeof(unsigned);
     const unsigned s = w / 2;
@@ -29,7 +31,7 @@ vector2 randomGradient(int ix, int iy) {
 }
 
 //It calculates how far our point is from the grid point, and then computes the dot product of the distance vector and the gradient vector to calculate angle between them.
-float dotGridGradient(int ix, int iy, float x, float y) {
+static inline float dotGridGradient(int ix, int iy, float x, float y) {
 	//Get gradient from integer coordinates
 	vector2 gradient = randomGradient(ix, iy);
 
@@ -44,14 +46,14 @@ float dotGridGradient(int ix, int iy, float x, float y) {
 	return (dx * gradient.x + dy * gradient.y); 
 }
 
-float interpolate(float a0, float a1, float w) {
+static inline float interpolate(float a0, float a1, float w) {
 	//Cubic Interpolation (smoothstep)
     //Instead of using linear interpolation, we use cubic interpolation to smooth the transitions between grid points. 
     //This helps to create a more natural and visually appealing noise pattern.
     return (a1 - a0) * (3.0 - w * 2.0) * w * w + a0;
 }
 
-float perlin(float x, float y) {
+static inline float perlin(float x, float y) {
 	
 	//Determine grid cell coordinates
 	int x0 = (int)x;
@@ -80,7 +82,7 @@ float perlin(float x, float y) {
 }
 
 // Perlin with octaves (fractal noise/brownian motion). Returns value approximately in same range as perlin (roughly -1..1).
-float perlinOctaves(float x, float y, int octaves = 4, float persistence = 0.5f, float lacunarity = 2.0f, float baseFreq = 1.0f) {
+static inline float perlinOctaves(float x, float y, int octaves = 4, float persistence = 0.5f, float lacunarity = 2.0f, float baseFreq = 1.0f) {
     float total = 0.0f;
     float amplitude = 1.0f;
     float frequency = baseFreq;
