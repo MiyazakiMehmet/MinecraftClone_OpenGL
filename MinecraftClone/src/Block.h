@@ -16,7 +16,8 @@ public:
 
 	std::vector<glm::vec3> AddTransformedVertices(const std::vector<glm::vec3>& vertices);
 
-	inline FaceData GetFace(Faces face) { return faces[face]; }
+    // return const reference to avoid copying
+    inline const FaceData& GetFace(Faces face) const { return faces.at(face); }
 
 	~Block();
 };

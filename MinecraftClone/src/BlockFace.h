@@ -14,6 +14,7 @@ enum Faces {
 	BOTTOM
 };
 
+//Temporary struct to hold the vertices of a face, will be used to generate the mesh data for rendering
 struct FaceData {
 	std::vector<glm::vec3> vertices;
 };
@@ -25,8 +26,8 @@ struct FaceDataRaw {
 			{
 				glm::vec3(-0.5f, -0.5f, 0.5f),
 				glm::vec3(0.5f, -0.5f, 0.5f),
-				glm::vec3(-0.5f, 0.5f, 0.5f),
-				glm::vec3(0.5f, 0.5f, 0.5f)
+				glm::vec3(0.5f, 0.5f, 0.5f),
+				glm::vec3(-0.5f, 0.5f, 0.5f)
 			}
 		},
 		{
@@ -34,8 +35,8 @@ struct FaceDataRaw {
 			{
 				glm::vec3(0.5f, -0.5f, -0.5f), 
 				glm::vec3(-0.5f, -0.5f, -0.5f),
-				glm::vec3(-0.5f,  0.5f, -0.5f),
-				glm::vec3(0.5f,  0.5f, -0.5f)  
+				glm::vec3(0.5f,  0.5f, -0.5f),
+				glm::vec3(-0.5f,  0.5f, -0.5f)
 			}
 		},
 		{
@@ -43,8 +44,8 @@ struct FaceDataRaw {
 			{
 				glm::vec3(0.5f, -0.5f,  0.5f), 
 				glm::vec3(0.5f, -0.5f, -0.5f), 
-				glm::vec3(0.5f,  0.5f, -0.5f), 
-				glm::vec3(0.5f,  0.5f,  0.5f)  
+				glm::vec3(0.5f,  0.5f,  0.5f),
+				glm::vec3(0.5f,  0.5f, -0.5f)
 			}
 		},
 		{
@@ -52,8 +53,8 @@ struct FaceDataRaw {
 			{
 				glm::vec3(-0.5f, -0.5f, -0.5f),
 				glm::vec3(-0.5f, -0.5f,  0.5f),
-				glm::vec3(-0.5f,  0.5f,  0.5f),
-				glm::vec3(-0.5f,  0.5f, -0.5f) 
+				glm::vec3(-0.5f,  0.5f, -0.5f),
+				glm::vec3(-0.5f,  0.5f,  0.5f)
 			}
 		},
 		{
@@ -61,8 +62,8 @@ struct FaceDataRaw {
 			{
 				glm::vec3(-0.5f,  0.5f,  0.5f),
 				glm::vec3(0.5f,  0.5f,  0.5f), 
-				glm::vec3(0.5f,  0.5f, -0.5f), 
-				glm::vec3(-0.5f,  0.5f, -0.5f) 
+				glm::vec3(-0.5f,  0.5f, -0.5f), 
+				glm::vec3(0.5f,  0.5f, -0.5f)
 			}
 		},
 		{
@@ -70,8 +71,8 @@ struct FaceDataRaw {
 			{
 				glm::vec3(-0.5f, -0.5f, -0.5f),
 				glm::vec3(0.5f, -0.5f, -0.5f), 
-				glm::vec3(0.5f, -0.5f,  0.5f), 
-				glm::vec3(-0.5f, -0.5f,  0.5f) 
+				glm::vec3(-0.5f, -0.5f,  0.5f),
+				glm::vec3(0.5f, -0.5f,  0.5f)
 			}
 		}
 	};
