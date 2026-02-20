@@ -29,9 +29,13 @@ void Mesh::CompileMesh(std::vector<float>& vertices, std::vector<unsigned int>& 
 		indices.data(),
 		GL_STATIC_DRAW);
 
-    // position attribute (3 floats)
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    // position attribute 
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+
+	//uv attribute
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
 
     glBindVertexArray(0);
 }

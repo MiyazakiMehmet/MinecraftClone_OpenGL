@@ -79,6 +79,9 @@ int Window::Initialize()
 	}
 
     glEnable(GL_DEPTH_TEST);
+    // Draw both sides of faces to avoid visible holes when face winding is inconsistent.
+    // Once winding is fixed, you can enable culling for a small performance gain.
+    glDisable(GL_CULL_FACE);
 
     // Capture mouse and set callback
     glfwSetInputMode(mainWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);

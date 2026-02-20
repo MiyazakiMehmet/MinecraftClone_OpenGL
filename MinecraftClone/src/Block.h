@@ -11,6 +11,7 @@ class Block {
 private:
 	glm::vec3 position;
 	std::map<Faces, FaceData> faces;
+	std::vector<glm::vec2> dirtUV;
 public:
 	Block(glm::vec3 pos);
 

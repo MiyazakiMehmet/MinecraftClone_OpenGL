@@ -3,6 +3,7 @@
 #include "Shader.h"
 #include "Block.h"
 #include "Mesh.h"
+#include "Texture.h"
 
 #include <iostream>
 #include <vector>
@@ -12,6 +13,7 @@
 class Chunk {
 private:
 	Mesh chunkMesh;
+	Texture dirtTexture;
 
     // interleaved vertex data: position(3), uv(2), normal(3) per vertex
     std::vector<float> chunkVerts;

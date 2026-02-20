@@ -32,7 +32,6 @@ int main(void)
 
     //Chunk
     Chunk chunk(glm::vec3(0.0f, 0.0f, 0.0f));
-    chunk.BuildChunk();
 
 
     // Camera will be managed by Window; we'll query it each frame
@@ -44,12 +43,12 @@ int main(void)
     Shader shader;
     shader.CompileShader("src/Shaders/triangle.vert", "src/Shaders/triangle.frag");
 
+
     // Uniform locations
     unsigned int shaderID = shader.GetShaderID();
     int modelLoc = glGetUniformLocation(shaderID, "model");
     int viewLoc = glGetUniformLocation(shaderID, "view");
     int projLoc = glGetUniformLocation(shaderID, "projection");
-    int texLoc = glGetUniformLocation(shaderID, "uTexture");
 
     /* Loop until the user closes the window */
     while (!windowObj.GetShouldClose())
@@ -73,7 +72,7 @@ int main(void)
         glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
         glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)width / (float)height, 0.1f, 100.0f);
 
-        // Upload matrices
+        // Upload uniforms
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
         glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
